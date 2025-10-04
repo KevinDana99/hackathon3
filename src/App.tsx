@@ -4,6 +4,7 @@ import HomePage from "./routes/HomePage";
 import NotFoundPage from "./routes/NotFound";
 import OtherPage from "./routes/OtherPage";
 import Layout from "./components/layout";
+import PruebasPage from "./routes/Pruebas/PruebasPage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/other" element={<OtherPage />} />
         <Route path="*" element={<NotFoundPage />} />
+        <Route path="/test" element={<PruebasPage />} />
       </Routes>
     </Layout>
   );
