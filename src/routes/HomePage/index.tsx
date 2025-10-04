@@ -1,6 +1,11 @@
-import Map from "../../components/ui/Map";
+import Dashboard from "../../components/Dashboard";
+
 const HomePage = () => {
-  return <Map />;
+  return (
+    <>
+      <Dashboard />
+    </>
+  );
 };
 
 export default HomePage;

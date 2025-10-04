@@ -1,4 +1,4 @@
-import { IoLocationOutline, IoSearch } from "react-icons/io5";
+import { IoLocationOutline, IoSearch, IoCalendar } from "react-icons/io5";
 import Categories from "../../ui/Categories";
 
 const Navbar = () => {
@@ -20,17 +20,35 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className="hidden inputContainer w-full h-12 outline-0 p-5 box-border flex justify-center items-center bg-gray-200 text-gray-500 rounded-xl">
+      <div className="mt-5 inputContainer w-full h-12 outline-0 p-5 box-border flex justify-center items-center bg-gray-200 text-gray-500 rounded-xl">
         <IoSearch size={20} />
         <input
-          placeholder="Search for service"
+          placeholder="Search loaction"
           type="text"
           className="text w-full h-10 p-2 box-border ml-2"
         />
       </div>
-      <div className="categories-section mt-4">
-        <Categories />
+
+      <div className="container-date flex">
+        <div className="mr-5 mt-5 inputContainer w-40 h-12 outline-0 p-5 box-border flex justify-center items-center bg-gray-200 text-gray-500 rounded-xl">
+          <IoCalendar size={20} />
+
+          <input
+            placeholder="start date"
+            type="text"
+            className="text w-full h-10 p-2 box-border ml-2"
+          />
+        </div>
+        <div className="mr-5 mt-5 inputContainer w-40 h-12 outline-0 p-5 box-border flex justify-center items-center bg-gray-200 text-gray-500 rounded-xl">
+          <IoCalendar size={20} />
+          <input
+            placeholder="end date"
+            type="text"
+            className="text w-full h-10 p-2 box-border ml-2"
+          />
+        </div>
       </div>
+      <div className="categories-section mt-4"></div>
     </div>
   );
 };
