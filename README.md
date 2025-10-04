@@ -77,3 +77,5 @@ Lista de parameters relevantes para usar en la NASA POWER API:
  - WS2M: velocidad viento a 2m
  - WD2M: direccion del viento a 2m
  - T2M: temperatura a 2m
+ - PRECTOTCORR: precipitacion total
+
