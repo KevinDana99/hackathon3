@@ -1,10 +1,11 @@
 import { IoLocationOutline, IoSearch } from "react-icons/io5";
+import Categories from "../../ui/Categories";
 
 const Navbar = () => {
   return (
-    <div className="w-full h-40 bg-blue-500 p-5 box-border">
-      <div className="h-15">
-        <div className="location flex w-30 justify-center items-center ">
+    <div className="w-full h-auto bg-blue-500 p-5 box-border">
+      <div className="h-10 ">
+        <div className="location flex w-100 justify-start items-center ">
           <div className="icoContainer flex justify-center items-center">
             <IoLocationOutline size={20} />
           </div>
@@ -19,13 +20,16 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className="inputContainer w-full h-15 p-5 box-border flex justify-center items-center bg-gray-200 text-gray-500 rounded-2xl">
+      <div className="hidden inputContainer w-full h-12 outline-0 p-5 box-border flex justify-center items-center bg-gray-200 text-gray-500 rounded-xl">
         <IoSearch size={20} />
         <input
           placeholder="Search for service"
           type="text"
           className="text w-full h-10 p-2 box-border ml-2"
         />
+      </div>
+      <div className="categories-section mt-4">
+        <Categories />
       </div>
     </div>
   );
