@@ -1,11 +1,15 @@
-import { useState } from "react";
 import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./routes/HomePage";
+import NotFoundPage from "./routes/NotFound";
 
 function App() {
-  const [state, setState] = useState("hello world");
   return (
     <>
-      <h1 className="text-3xl font-bold bg-red-300">{state}</h1>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </>
   );
 }
