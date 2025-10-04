@@ -1,13 +1,6 @@
-import maps from "../../assets/maps.jpg";
+import Map from "../../components/ui/Map";
 const HomePage = () => {
-  return (
-    <>
-      <img src={maps} alt="" className="object-cover " />
-      <img src={maps} alt="" className="object-cover " />
-      <img src={maps} alt="" className="object-cover " />
-      <img src={maps} alt="" className="object-cover " />
-    </>
-  );
+  return <Map />;
 };
 
 export default HomePage;
