@@ -23,6 +23,9 @@ const SearchQuery = () => {
     setActiveOptions,
   } = useSearchQuery();
   const today = new Date().toISOString().split("T")[0];
+  useEffect(() => {
+    console.log({ startDate, endDate });
+  }, [startDate, endDate]);
   return (
     <>
       <div className="h-10 ">
@@ -59,7 +62,7 @@ const SearchQuery = () => {
                       onClick={() => {
                         handleChangeLocation({
                           name: option.display_name,
-                          coords: [option.lat, option.lon],
+                          coords: { lat: option.lat, lon: option.lon },
                         });
                         setActiveOptions(false);
                       }}
@@ -82,10 +85,18 @@ const SearchQuery = () => {
       </div>
       <div className="container-date flex">
         <div className="mr-5 mt-5 inputContainer w-40 h-12 outline-0 p-5 box-border flex justify-center items-center bg-gray-200 text-gray-500 rounded-xl">
-          <input type="date" value={today} min={today} />
+          <input
+            type="date"
+            value={today}
+            min={today}
+            onChange={(e) => handleChangeStartDate(e.target.value)}
+          />
         </div>
         <div className="mr-5 mt-5 inputContainer w-40 h-12 outline-0 p-5 box-border flex justify-center items-center bg-gray-200 text-gray-500 rounded-xl">
-          <input type="date" />
+          <input
+            type="date"
+            onChange={(e) => handleChangeEndDate(e.target.value)}
+          />
         </div>
       </div>
     </>

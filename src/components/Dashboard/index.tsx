@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { wheatherList, dictionaryList } from "../../mocks";
 import DashboardItem from "../ui/dashboards/DashboardItem";
 import ReactAnimatedWeather from "react-animated-weather";
+import useFetch from "../../hooks/useFetch";
 
 const Dashboard = () => {
   return (
@@ -8,7 +10,7 @@ const Dashboard = () => {
       {wheatherList.map((item, index) => (
         <DashboardItem
           probability={0.2}
-          status={item.name}
+          name={item.name}
           ico={
             <ReactAnimatedWeather
               icon={item.icon}

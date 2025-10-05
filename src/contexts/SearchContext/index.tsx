@@ -4,7 +4,13 @@ import useConfig from "../../hooks/useConfig";
 import type { ConfigType } from "../../mocks/config/types";
 
 export type SearchContextType = {
-  location: string | null;
+  location: {
+    name: string;
+    coords: {
+      lat: number;
+      lon: number;
+    } | null;
+  } | null;
   startDate: string | null;
   endDate: string | null;
   country: {
@@ -32,7 +38,7 @@ export const SearchQueryProvider = ({ children }: { children: ReactNode }) => {
   const { coords, error, loading } = useGeolocation();
   console.log({ coords });
 
-  const [location, setLocation] = useState<string | null>(null);
+  const [location, setLocation] = useState<SearchContextType["location"]>(null);
   const [startDate, setStartDate] = useState<string | null>(null);
   const [endDate, setEndDate] = useState<string | null>(null);
   const [country, setCountry] = useState<{
@@ -42,7 +48,8 @@ export const SearchQueryProvider = ({ children }: { children: ReactNode }) => {
       lon: number;
     } | null;
   } | null>(null);
-  const handleChangeLocation = (location: string) => setLocation(location);
+  const handleChangeLocation = (location: SearchContextType["location"]) =>
+    setLocation(location);
   const handleChangeStartDate = (date: string) => setStartDate(date);
   const handleChangeEndDate = (date: string) => setEndDate(date);
   const handleGetCountry = async () => {

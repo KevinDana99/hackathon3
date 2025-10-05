@@ -21,7 +21,8 @@ const wheatherList = [
     color: "goldenrod",
     size: 100,
     animate: true,
-    name: "temperatura",
+    name: "temperature",
+    unit: "°C",
   },
   {
     id: "3",
@@ -29,7 +30,8 @@ const wheatherList = [
     color: "goldenrod",
     size: 100,
     animate: true,
-    name: "lluvia",
+    name: "rain",
+    unit: "mm",
   },
 
   {
