@@ -1,7 +1,6 @@
-import type { ReactAnimatedWeatherProps } from "../components/Dashboard/types";
-
 const wheatherList = [
   {
+    id: "0",
     icon: "CLOUDY",
     color: "goldenrod",
     size: 100,
@@ -9,6 +8,7 @@ const wheatherList = [
     name: "humedad",
   },
   {
+    id: "1",
     icon: "WIND",
     color: "goldenrod",
     size: 100,
@@ -16,6 +16,7 @@ const wheatherList = [
     name: "fuertes vientos",
   },
   {
+    id: "2",
     icon: "CLEAR_DAY",
     color: "goldenrod",
     size: 100,
@@ -23,6 +24,7 @@ const wheatherList = [
     name: "temperatura",
   },
   {
+    id: "3",
     icon: "RAIN",
     color: "goldenrod",
     size: 100,
@@ -31,6 +33,7 @@ const wheatherList = [
   },
 
   {
+    id: "4",
     icon: "SNOW",
     color: "goldenrod",
     size: 100,
@@ -39,13 +42,14 @@ const wheatherList = [
   },
 
   {
+    id: "5",
     icon: "SLEET",
     color: "goldenrod",
     size: 100,
     animate: true,
     name: "agua nieve",
   },
-] as ReactAnimatedWeatherProps[];
+];
 
 const dictionaryList = [
   {

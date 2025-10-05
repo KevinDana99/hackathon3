@@ -1,7 +1,16 @@
 import Config from "../../components/Config";
 import Footer from "../../components/layout/Footer";
 import { ToastContainer, toast } from "react-toastify";
+import useConfig from "../../hooks/useConfig";
+import {
+  SearchQueryContext,
+  type SearchContextType,
+} from "../../contexts/SearchContext";
+import { useContext } from "react";
 const ConfigPage = () => {
+  const context: SearchContextType = useContext(SearchQueryContext);
+  const { handleSaveAllChanges } = context;
+
   return (
     <div className="flex flex-col justify-between h-auto bg-white min-h-full">
       <ToastContainer position="top-right" autoClose={3000} />
@@ -37,7 +46,10 @@ const ConfigPage = () => {
         </div>
         <button
           className="btn btn-primary w-30 bg-white text-gray-950"
-          onClick={() => toast.success("Saved changes")}
+          onClick={() => {
+            handleSaveAllChanges();
+            toast.success("Saved changes");
+          }}
         >
           Save
         </button>
