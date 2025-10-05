@@ -2,64 +2,48 @@ import type { ReactAnimatedWeatherProps } from "../components/Dashboard/types";
 
 const wheatherList = [
   {
-    icon: "CLEAR_DAY",
-    color: "goldenrod",
-    size: 100,
-    animate: true,
-  },
-  {
-    icon: "CLEAR_NIGHT",
-    color: "goldenrod",
-    size: 100,
-    animate: true,
-  },
-  {
     icon: "CLOUDY",
     color: "goldenrod",
     size: 100,
     animate: true,
-  },
-  {
-    icon: "FOG",
-    color: "goldenrod",
-    size: 100,
-    animate: true,
-  },
-  {
-    icon: "PARTLY_CLOUDY_DAY",
-    color: "goldenrod",
-    size: 100,
-    animate: true,
-  },
-  {
-    icon: "PARTLY_CLOUDY_NIGHT",
-    color: "goldenrod",
-    size: 100,
-    animate: true,
-  },
-  {
-    icon: "RAIN",
-    color: "goldenrod",
-    size: 100,
-    animate: true,
-  },
-  {
-    icon: "SLEET",
-    color: "goldenrod",
-    size: 100,
-    animate: true,
-  },
-  {
-    icon: "SNOW",
-    color: "goldenrod",
-    size: 100,
-    animate: true,
+    name: "humedad",
   },
   {
     icon: "WIND",
     color: "goldenrod",
     size: 100,
     animate: true,
+    name: "fuertes vientos",
+  },
+  {
+    icon: "CLEAR_DAY",
+    color: "goldenrod",
+    size: 100,
+    animate: true,
+    name: "temperatura",
+  },
+  {
+    icon: "RAIN",
+    color: "goldenrod",
+    size: 100,
+    animate: true,
+    name: "lluvia",
+  },
+
+  {
+    icon: "SNOW",
+    color: "goldenrod",
+    size: 100,
+    animate: true,
+    name: "nieve",
+  },
+
+  {
+    icon: "SLEET",
+    color: "goldenrod",
+    size: 100,
+    animate: true,
+    name: "agua nieve",
   },
 ] as ReactAnimatedWeatherProps[];
 

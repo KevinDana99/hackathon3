@@ -11,6 +11,7 @@ export type WeatherIcon =
   | "FOG";
 
 export interface ReactAnimatedWeatherProps {
+  name?: string;
   icon: WeatherIcon;
   animate?: boolean;
   size?: number;

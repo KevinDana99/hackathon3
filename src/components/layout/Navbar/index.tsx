@@ -1,9 +1,8 @@
 import { IoLocationOutline, IoSearch, IoCalendar } from "react-icons/io5";
-import Categories from "../../ui/Categories";
 
 const Navbar = () => {
   return (
-    <div className="w-full h-auto bg-blue-500 p-5 box-border">
+    <div className="w-full h-auto bg-blue-500 p-5 box-border fixed top-0 z-10">
       <div className="h-10 ">
         <div className="location flex w-100 justify-start items-center ">
           <div className="icoContainer flex justify-center items-center">
@@ -28,7 +27,6 @@ const Navbar = () => {
           className="text w-full h-10 p-2 box-border ml-2"
         />
       </div>
-
       <div className="container-date flex">
         <div className="mr-5 mt-5 inputContainer w-40 h-12 outline-0 p-5 box-border flex justify-center items-center bg-gray-200 text-gray-500 rounded-xl">
           <IoCalendar size={20} />

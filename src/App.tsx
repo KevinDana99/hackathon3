@@ -2,20 +2,20 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./routes/HomePage";
 import NotFoundPage from "./routes/NotFound";
-import OtherPage from "./routes/OtherPage";
+import Config from "./routes/ConfigPage";
 import Layout from "./components/layout";
 import PruebasPage from "./routes/Pruebas/PruebasPage";
-
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
-    <Layout>
-      <Routes>
+    <Routes>
+      <Route path="/config" element={<Config />} />
+      <Route element={<Layout />}>
         <Route path="/" element={<HomePage />} />
-        <Route path="/other" element={<OtherPage />} />
-        <Route path="*" element={<NotFoundPage />} />
         <Route path="/test" element={<PruebasPage />} />
-      </Routes>
-    </Layout>
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+    </Routes>
   );
 }
 

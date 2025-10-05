@@ -1,19 +1,18 @@
-import { wheatherList, dictionaryList } from "../../mocks";
-import DashboardItem from "../ui/dashboards/DashboardItem";
+import { wheatherList } from "../../mocks";
+import ConfigCard from "../ui/cards/ConfigCard";
 import ReactAnimatedWeather from "react-animated-weather";
 
-const Dashboard = () => {
+const Config = () => {
   return (
     <div className="w-full h-auto flex flex-wrap justify-center">
       {wheatherList.map((item, index) => (
-        <DashboardItem
-          probability={0.2}
-          status={item.name}
+        <ConfigCard
+          name={item.name}
           ico={
             <ReactAnimatedWeather
               icon={item.icon}
               color={item.color}
-              size={item.size}
+              size={40}
               animate={item.animate}
             />
           }
@@ -23,4 +22,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Config;
