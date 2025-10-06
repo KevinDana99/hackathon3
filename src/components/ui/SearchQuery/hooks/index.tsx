@@ -26,7 +26,7 @@ const useSearchQuery = () => {
         )}&format=json&addressdetails=1&limit=5`
       );
       const res = await req.json();
-      console.log({ res });
+
       setLocationOptions(res);
     } catch (err) {
       console.error(err);
@@ -37,9 +37,6 @@ const useSearchQuery = () => {
     setActiveOptions(true);
   }, [query]);
 
-  useEffect(() => {
-    console.log({ location });
-  }, [location]);
   return {
     ...context,
     handleChangeQuery,

@@ -43,7 +43,7 @@ function PruebasPage() {
       },
     }
   );
-  console.log(data);
+
   return <h1>test</h1>;
   if (loading) return <h1>Cargando..</h1>;
   if (error) return <h1>Error</h1>;

@@ -11,24 +11,26 @@ const useConfig = () => {
   const handleSaveConfig = (config: ConfigType) => {
     setConfig(config);
   };
+  const handleGetConfigLocalStorage = () => {
+    const localStorageConfig = localStorage.getItem("config");
+    if (localStorageConfig) {
+      const getConfig =
+        localStorage.getItem("config") &&
+        JSON.parse(localStorage?.getItem("config") ?? "");
+      setConfig(getConfig);
+    }
+  };
   const handleSaveAllChanges = () => {
     handleUpdateConfigLocalStorage(config);
   };
+
+  useEffect(() => {
+    handleGetConfigLocalStorage();
+  }, []);
+
   useEffect(() => {
     console.log({ config });
   }, [config]);
-
-  /* const handleGetConfigLocalStorage = () => {
-    const storedConfig = localStorage.getItem("config");
-    if (storedConfig) {
-      const userConfig = JSON.parse(storedConfig);
-      setConfig(userConfig);
-    }
-  };
-  */
-  useEffect(() => {
-    //handleGetConfigLocalStorage();
-  }, []);
 
   return { config, handleSaveConfig, handleSaveAllChanges };
 };

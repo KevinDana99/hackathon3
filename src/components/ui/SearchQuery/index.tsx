@@ -23,9 +23,7 @@ const SearchQuery = () => {
     setActiveOptions,
   } = useSearchQuery();
   const today = new Date().toISOString().split("T")[0];
-  useEffect(() => {
-    console.log({ startDate, endDate });
-  }, [startDate, endDate]);
+
   return (
     <>
       <div className="h-10 ">

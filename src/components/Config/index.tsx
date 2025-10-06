@@ -24,7 +24,6 @@ const Config = () => {
         handleSaveConfig(newConfig);
       }
     } else {
-      console.log("El widget ya existe, no se agrega.");
       const itemRepeat = newItem.widget_id;
       const filterConfig = config?.filter(
         (item) => item.widget_id !== itemRepeat
@@ -32,10 +31,10 @@ const Config = () => {
       handleSaveConfig([...filterConfig, newItem]);
     }
   };
+
   return (
     <div className="w-full h-auto flex flex-wrap justify-center">
       {wheatherList.map((item, index) => {
-        config && console.log({ configFinal: config[index] });
         return (
           <ConfigCard
             handleUpdatedConfig={handleUpdatedConfig}

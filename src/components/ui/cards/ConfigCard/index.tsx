@@ -1,6 +1,10 @@
 import type { JSX } from "@emotion/react/jsx-runtime";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import type { ConfigType } from "../../../../mocks/config/types";
+import {
+  SearchQueryContext,
+  type SearchContextType,
+} from "../../../../contexts/SearchContext";
 
 const ConfigCard = ({
   ico,
@@ -13,6 +17,14 @@ const ConfigCard = ({
   id: string;
   handleUpdatedConfig: (newItem: ConfigType[0]) => void;
 }) => {
+  const context: SearchContextType = useContext(SearchQueryContext);
+  const { config } = context;
+  const selectedConfig = config?.filter((conf) => conf.widget_id === id)[0];
+  console.log({ selectedConfig });
+
+  useEffect(() => {
+    console.log(selectedConfig);
+  }, [selectedConfig]);
   const [form, setForm] = useState<ConfigType[0] | null>({
     queryType: "",
     value: "",
@@ -23,23 +35,21 @@ const ConfigCard = ({
   });
 
   const handleUpdateForm = ({
-    min,
-    max,
     unit,
     visible,
+    queryType,
+    value,
   }: {
-    min?: string;
-    max?: string;
+    queryType?: string;
+    value?: string;
     unit?: string;
     visible?: boolean;
   }) => {
     form &&
       setForm({
         ...form,
-        queryType: min ?? form.min,,
-        value: min ?? form.min,
-        min: min ?? form.min,
-        max: max ?? form.max,
+        queryType: queryType ?? form.queryType,
+        value: value ?? form.value,
         unit: unit ?? form.unit,
         visible: visible ?? form.visible,
       });
@@ -47,7 +57,6 @@ const ConfigCard = ({
 
   useEffect(() => {
     form && handleUpdatedConfig(form);
-    console.log(form);
   }, [form]);
 
   return (
@@ -64,20 +73,24 @@ const ConfigCard = ({
           <div className="mt-3 inputContainer flex justify-between w-full items-center">
             <span>Type of query</span>
             <select
-              onChange={(e) => handleUpdateForm({ min: e.target.value })}
+              onChange={(e) => handleUpdateForm({ queryType: e.target.value })}
               className="w-20 h-10 bg-gray-100 pl-5"
               name=""
               id=""
             >
-              <option value="">Lower than</option>
-              <option value="">Greater than</option>
+              <option value="lowerthan">Lower than</option>
+              <option value="greaterthan">Greater than</option>
             </select>
           </div>
         )}
         {name !== "rain" && (
           <div className="mt-3 inputContainer flex justify-between w-full items-center">
             <span>Value</span>
-            <input type="number"></input>
+            <input
+              onChange={(e) => handleUpdateForm({ queryType: e.target.value })}
+              type="number"
+              value={selectedConfig?.queryType ?? ""}
+            ></input>
           </div>
         )}
         <div className="mt-3 inputContainer flex justify-between w-full items-center">
@@ -97,7 +110,7 @@ const ConfigCard = ({
           <input
             onChange={(e) => handleUpdateForm({ visible: !form?.visible })}
             type="checkbox"
-            checked={form?.visible}
+            checked={selectedConfig?.visible ?? false}
             className="w-13 h-8 toggle border-indigo-600 bg-indigo-500 checked:border-orange-500 checked:bg-orange-400 checked:text-orange-800"
           />
         </div>

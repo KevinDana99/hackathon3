@@ -15,7 +15,9 @@ import formetDayToApi from "../../../../helpers/dates";
 const DashboardItem = ({
   ico,
   name = "lluvia",
+  id,
 }: {
+  id: string;
   ico: JSX.Element;
   name: string;
 }) => {
@@ -24,9 +26,9 @@ const DashboardItem = ({
 
   const [probability, setProbability] = useState(null);
   const [percentage, setPercentage] = useState<number | null>(null);
+  const selectedConfig = config?.filter((conf) => conf.widget_id === id)[0];
 
   const fetching = async () => {
-    console.log(startDate);
     const req = await fetch(
       `http://localhost:3000/${name}?startDate=${formetDayToApi(
         startDate
@@ -58,7 +60,7 @@ const DashboardItem = ({
     setItemRange(e.target.value);
   };
 
-  return (
+  return selectedConfig?.visible ? (
     <>
       <div className="flex mt-5 mr-5 flex-col items-center shadow-xl w-xs h-90 p-8  rounded-lg dark:bg-gray-50 dark:text-gray-800  justify-center">
         <div className="flex justify-between space-x-8">
@@ -85,12 +87,9 @@ const DashboardItem = ({
         </span>
       </div>
     </>
+  ) : (
+    <></>
   );
 };
 
 export default DashboardItem;
-/*
-      <div className="minmax flex justify-between w-full">
-          <span>min</span>
-          <span>max</span>
-        </div>*/

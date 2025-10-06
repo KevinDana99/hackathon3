@@ -36,7 +36,6 @@ export const SearchQueryContext = createContext<SearchContextType | undefined>(
 export const SearchQueryProvider = ({ children }: { children: ReactNode }) => {
   const { config, handleSaveAllChanges, handleSaveConfig } = useConfig();
   const { coords, error, loading } = useGeolocation();
-  console.log({ coords });
 
   const [location, setLocation] = useState<SearchContextType["location"]>(null);
   const [startDate, setStartDate] = useState<string | null>(null);
