@@ -83,7 +83,7 @@ const DashboardItem = ({
           {itemRange}% chances
         </span>
         <span className="text-2xl font-semibold mt-2">
-          of temperature higher than 39°C
+          of temperature higher than
         </span>
       </div>
     </>
