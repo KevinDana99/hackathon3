@@ -14,8 +14,8 @@ const ConfigCard = ({
   handleUpdatedConfig: (newItem: ConfigType[0]) => void;
 }) => {
   const [form, setForm] = useState<ConfigType[0] | null>({
-    min: "",
-    max: "",
+    queryType: "",
+    value: "",
     unit: "",
     name,
     widget_id: id,
@@ -36,6 +36,8 @@ const ConfigCard = ({
     form &&
       setForm({
         ...form,
+        queryType: min ?? form.min,,
+        value: min ?? form.min,
         min: min ?? form.min,
         max: max ?? form.max,
         unit: unit ?? form.unit,
@@ -58,26 +60,26 @@ const ConfigCard = ({
       </div>
 
       <div className="minmax flex flex-col w-36 items-start">
-        <div className="mt-3 inputContainer flex justify-between w-full items-center">
-          <span>min</span>
-          <input
-            onChange={(e) => handleUpdateForm({ min: e.target.value })}
-            className="w-20 h-10 bg-gray-100 pl-5"
-            type="number"
-            name=""
-            id=""
-          />
-        </div>
-        <div className="mt-3 inputContainer flex justify-between w-full items-center">
-          <span>max</span>
-          <input
-            onChange={(e) => handleUpdateForm({ max: e.target.value })}
-            className="w-20 h-10 bg-gray-100 pl-5"
-            type="number"
-            name=""
-            id=""
-          />
-        </div>
+        {name === "temperature" && (
+          <div className="mt-3 inputContainer flex justify-between w-full items-center">
+            <span>Type of query</span>
+            <select
+              onChange={(e) => handleUpdateForm({ min: e.target.value })}
+              className="w-20 h-10 bg-gray-100 pl-5"
+              name=""
+              id=""
+            >
+              <option value="">Lower than</option>
+              <option value="">Greater than</option>
+            </select>
+          </div>
+        )}
+        {name !== "rain" && (
+          <div className="mt-3 inputContainer flex justify-between w-full items-center">
+            <span>Value</span>
+            <input type="number"></input>
+          </div>
+        )}
         <div className="mt-3 inputContainer flex justify-between w-full items-center">
           <span>unity</span>
           <select

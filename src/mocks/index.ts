@@ -1,19 +1,12 @@
 const wheatherList = [
   {
-    id: "0",
-    icon: "CLOUDY",
-    color: "goldenrod",
-    size: 100,
-    animate: true,
-    name: "humedad",
-  },
-  {
     id: "1",
     icon: "WIND",
     color: "goldenrod",
     size: 100,
     animate: true,
     name: "fuertes vientos",
+    defaultQueryType: "lowerthan",
   },
   {
     id: "2",
@@ -32,24 +25,6 @@ const wheatherList = [
     animate: true,
     name: "rain",
     unit: "mm",
-  },
-
-  {
-    id: "4",
-    icon: "SNOW",
-    color: "goldenrod",
-    size: 100,
-    animate: true,
-    name: "nieve",
-  },
-
-  {
-    id: "5",
-    icon: "SLEET",
-    color: "goldenrod",
-    size: 100,
-    animate: true,
-    name: "agua nieve",
   },
 ];
 

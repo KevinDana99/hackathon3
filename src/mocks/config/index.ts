@@ -1,8 +1,8 @@
 const configMock = [
   {
     widget_id: "",
-    min: "",
-    max: "",
+    queryType: "",
+    value: "",
     unit: "",
     visible: false,
     name: "",

@@ -9,7 +9,6 @@ const Dashboard = () => {
     <div className="w-full h-auto flex flex-wrap justify-center">
       {wheatherList.map((item, index) => (
         <DashboardItem
-          probability={0.2}
           name={item.name}
           ico={
             <ReactAnimatedWeather
