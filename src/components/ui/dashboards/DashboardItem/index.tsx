@@ -30,7 +30,7 @@ const DashboardItem = ({
 
   const fetching = async () => {
     const req = await fetch(
-      `hackathon3-backend-6vaw.vercel.app/${name}?startDate=${formetDayToApi(
+      `https://hackathon3-backend-6vaw.vercel.app/${name}?startDate=${formetDayToApi(
         startDate
       )}&endDate=${formetDayToApi(endDate)}&latitude=${
         location?.coords?.lat
